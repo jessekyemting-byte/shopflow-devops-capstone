@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShopFlow E-Commerce</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background: #f4f6f8; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 500px; }
+        button { background: #0066cc; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; }
+        pre { background: #eee; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>ShopFlow Frontend</h1>
+        <p>Cloud-Native Microservices Application</p>
+        <button onclick="checkHealth()">Test Backend Health Endpoint</button>
+        <pre id="output">Click button to test...</pre>
+    </div>
+    <script>
+        async function checkHealth() {
+            try {
+                const res = await fetch('/api/health');
+                const data = await res.json();
+                document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+            } catch (err) {
+                document.getElementById('output').innerText = 'Failed to connect to backend API';
+            }
+        }
+    </script>
+</body>
+</html>
