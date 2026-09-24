@@ -1,0 +1,6 @@
+apiVersion: v2
+name: shopflow
+description: Helm chart for ShopFlow Microservices Stack
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
